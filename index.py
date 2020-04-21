@@ -43,6 +43,7 @@ def main_menu():
         pass
 
     # what if == 6 ? ... close the program
+    # does this work??
 
     if choice != "6":
         main_menu()
