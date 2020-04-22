@@ -1,5 +1,5 @@
-from animals import Animal
-from interfaces.animal import IFreshwater
+from .animal import Animal
+from interfaces import IFreshwater
 from interfaces import Identifiable
 
 class RiverDolphin(Animal, IFreshwater, Identifiable):

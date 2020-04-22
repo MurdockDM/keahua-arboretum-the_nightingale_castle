@@ -1,9 +1,3 @@
-from .terrestrial import ITerrestrial
-from .animal.freshwater import IFreshwater
-from .aquatic import IAquatic
-from .flying import IFlying
-from .walking import IWalking
-from .swimming import ISwimming
-from .identifiable import Identifiable
 from .habitat.contains_animals import IContainsAnimals
 from .habitat.contains_plants import IContainsPlants
+from .animal import IAquatic, IFlying, IFreshwater, Identifiable, ISaltwater, ISwimming, ITerrestrial, IWalking
