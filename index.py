@@ -1,6 +1,6 @@
 import os
 from arboretum import Arboretum
-from actions.annex import annex_habitat
+from actions import (annex_habitat, build_facility_report, release_animal)
 from actions.release_animal import release_animal
 from actions.report import build_facility_report
 
@@ -32,13 +32,18 @@ def main_menu():
 
     if choice == "3":
         pass
+    # feed
 
     if choice == "4":
         pass
+    # cultivate
 
     if choice == "5":
         build_facility_report(keahua)
         pass
+
+    # what if == 6 ? ... close the program
+    # does this work??
 
     if choice != "6":
         main_menu()

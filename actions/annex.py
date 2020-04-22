@@ -7,6 +7,7 @@ def annex_habitat(arboretum):
     print("2. Swamp")
     print("3. Coastline")
     print("4. Grassland")
+    # print forest and mountain?
 
     choice = input("Choose your habitat > ")
 
