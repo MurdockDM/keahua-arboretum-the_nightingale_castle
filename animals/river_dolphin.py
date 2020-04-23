@@ -4,6 +4,7 @@ from interfaces import ISaltwater
 from .prey import FishFood
 from interfaces import Identifiable
 
+
 class RiverDolphin(Animal, IFreshwater, ISaltwater, Identifiable, FishFood):
 
     def __init__(self, name):

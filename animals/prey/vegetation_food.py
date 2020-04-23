@@ -1,4 +1,4 @@
-class VegitationFood():
+class VegetationFood():
     def __init__(self):
         self.prey = {"Akia Kuahiwi", "Okolemakili", "Akia", "Ilima"}
 
