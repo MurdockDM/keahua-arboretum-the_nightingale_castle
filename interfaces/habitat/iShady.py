@@ -1,2 +1,4 @@
 class IShady:
-    pass
+    
+    def __init__(self):
+        self.shady = True
