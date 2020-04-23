@@ -2,7 +2,7 @@ from .plant import Plant
 from interfaces import Identifiable
 from interfaces import IHighElevation
 
-class BlueJade(Plant, Identifiable, IHighElevation):
+class MountainApple(Plant, Identifiable, IHighElevation):
 
     def __init__(self, name):
         Plant.__init__(self, name)

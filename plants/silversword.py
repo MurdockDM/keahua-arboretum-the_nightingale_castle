@@ -2,7 +2,7 @@ from .plant import Plant
 from interfaces import Identifiable
 from interfaces import ISunny
 
-class BlueJade(Plant, Identifiable, ISunny):
+class Silversword(Plant, Identifiable, ISunny):
 
     def __init__(self, name):
         Plant.__init__(self, name)
