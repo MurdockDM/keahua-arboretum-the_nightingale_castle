@@ -1,0 +1,2 @@
+class IFreshwater:
+    pass

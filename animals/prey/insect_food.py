@@ -1,0 +1,2 @@
+class InsectFood():
+    pass

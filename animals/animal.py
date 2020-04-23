@@ -2,7 +2,7 @@ class Animal:
 
     def __init__(self, species):
         self.species = species
-        self.age = 0
+        self.is_animal = True
 
-    def move(self, propulsion, speed):
-        return f"{self. species} moves at {speed} meters/sec by {propulsion}"
+    def feed(self, prey):
+        print(f"Dustin will fill in some shit about animal eating {prey}")

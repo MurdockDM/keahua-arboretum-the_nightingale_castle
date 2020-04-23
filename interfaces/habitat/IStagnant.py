@@ -1,0 +1,2 @@
+class IStagnant:
+    pass
