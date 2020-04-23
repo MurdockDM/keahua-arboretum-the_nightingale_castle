@@ -8,7 +8,7 @@ class Forest(Environment):
 
     def add_inhabitant(self, item):
         if not isinstance(item, IShady):
-            raise TypeError(f"{item} is not of type IShady")
+            raise TypeError(f"{item} can't live in this environment!")
         elif item.is_animal:
             self.inhabitants["Animal"].append(item)
         elif item.is_plant:
