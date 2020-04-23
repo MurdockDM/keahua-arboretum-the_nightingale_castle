@@ -14,5 +14,8 @@ class RiverDolphin(Animal, IFreshwater, ISaltwater, Identifiable, FishFood):
         FishFood.__init__(self)
         Identifiable.__init__(self)
 
+    def feed(self, prey):
+        print(f"{self.species} eats {prey}")    
+
     def __str__(self):
         return f'Dolphin {self.id}. Eeee EeeEEeeeeEE!'
