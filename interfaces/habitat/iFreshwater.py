@@ -1,2 +1,4 @@
 class IFreshwater:
-    pass
+
+    def __init__(self):
+        self.freshwater = True
