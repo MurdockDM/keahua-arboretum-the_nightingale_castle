@@ -14,7 +14,20 @@ def annex_habitat(arboretum):
     choice = input("Choose your habitat > ")
 
     if choice == "1":
+        coastline = Coastline()
+        arboretum.coastlines.append(coastline)
+    if choice == "2":
+        forest = Forest()
+        arboretum.forests.append(forest)
+    if choice == "3":
+        grassland = Grassland()
+        arboretum.grasslands.append(grassland)
+    if choice == "4":
+        mountain = Mountain()
+        arboretum.mountains.append(mountain)
+    if choice == "5":
         river = River()
         arboretum.rivers.append(river)
-    if choice == "2":
-        pass
+    if choice == "6":
+        swamp = Swamp()
+        arboretum.swamps.append(swamp)
