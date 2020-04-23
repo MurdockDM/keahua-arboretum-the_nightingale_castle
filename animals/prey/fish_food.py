@@ -1,3 +1,3 @@
 class FishFood():
     def __init__(self):
-        self.prey = {"Pointed Sawfish", "Seahorse", "Parrotfish", "Pacific Barreleye"}
+        self.prey = {"Humuhumunukunukuapua'a", "Black Triggerfish", "Bluestripe Snapper", "Moorish Idol"}
