@@ -1,2 +1,4 @@
 class ISaltwater:
-    pass
+    
+    def __init__(self):
+        self.saltwater = True

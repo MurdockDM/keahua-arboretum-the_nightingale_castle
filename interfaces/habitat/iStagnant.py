@@ -1,2 +1,4 @@
 class IStagnant:
-    pass
+    
+    def __init__(self):
+        self.stagnant = True
