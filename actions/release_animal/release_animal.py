@@ -37,6 +37,7 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
         "mountains": True if hasattr(animal, "likes_high_elevation") else False,
         "swamps": True if hasattr(animal, "likes_stagnant_water") else False
     }
+
     avalible_location_dict = dict()
 
     for key, value in env_char.items():
@@ -58,10 +59,11 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
                 avalible_location_list.append(item)
         
         for i, value in enumerate(avalible_location_list):
-            print(f"{i + 1} {value}")
+            print(f"{i + 1}. {str(value).capitalize()} ({len(value.inhabitants['Animals'])} animals)")
 
         print(f"{len(avalible_location_list) + 1}. Main Menu")
         # print(f"\n\n {input_text} {animal.species}")
+
         print("Press enter to cotinue...")
         choice = input(">> ")
         menu()
