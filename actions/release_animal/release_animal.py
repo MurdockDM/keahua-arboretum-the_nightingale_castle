@@ -6,8 +6,7 @@ import os
 from animals import Animal
 from inspect import isclass
 from .select_animal import build_select_animal_menu
-from .select_location import build_select_location_menu
-
+from .call_select_location import call_select_location
 
 def release_animal(arboretum, menu):
 
@@ -19,11 +18,13 @@ def release_animal(arboretum, menu):
 
     animal = None
 
-    animal_instance_list, ANIMAL_SELECTION = build_select_animal_menu(
-        animal_list)
-    if ANIMAL_SELECTION >= len(animal_instance_list):
+    animal_instance_list, animal_selection = build_select_animal_menu(animal_list)
+    
+    if animal_selection > len(animal_instance_list):
         menu()
     else:
-        animal = animal_instance_list[ANIMAL_SELECTION - 1]
-        choice = build_select_location_menu(arboretum, animal, menu)
+       call_select_location(animal_instance_list, animal_selection, arboretum, menu)
+
+        
+
 
