@@ -1,4 +1,4 @@
 class IFreshwater:
 
     def __init__(self):
-        self.freshwater = True
+        self.likes_freshwater = True
