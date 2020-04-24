@@ -13,9 +13,9 @@ class Swamp(Environment):
         if not isinstance(item, IStagnant):
             raise TypeError(f"{item} can't live in this environment!")
         elif item.is_animal:
-            self.inhabitants["Animal"].append(item)
+            self.inhabitants["Animals"].append(item)
         elif item.is_plant:
-            self.inhabitants["Plant"].append(item)
+            self.inhabitants["Plants"].append(item)
 
     def __str__(self):
         return self.name
