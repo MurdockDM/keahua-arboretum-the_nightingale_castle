@@ -3,7 +3,7 @@ from interfaces import ISaltwater
 
 class Coastline(Environment):
 
-    def __init__(self, name, animal_capacity, plant_capacity):
+    def __init__(self, name="coastline", animal_capacity=15, plant_capacity=3):
         super().__init__(name, animal_capacity, plant_capacity)
 
     def add_inhabitant(self, item):

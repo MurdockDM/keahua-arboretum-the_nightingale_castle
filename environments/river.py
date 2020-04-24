@@ -3,7 +3,7 @@ from interfaces import IFreshwater
 
 class River(Environment):
 
-    def __init__(self, name, animal_capacity, plant_capacity):
+    def __init__(self, name="river", animal_capacity=12, plant_capacity=6):
         super().__init__(name, animal_capacity, plant_capacity)
 
     def add_inhabitant(self, item):

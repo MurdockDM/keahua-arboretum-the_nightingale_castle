@@ -3,7 +3,7 @@ from interfaces import IHighElevation
 
 class Mountain(Environment):
 
-    def __init__(self, name, animal_capacity, plant_capacity):
+    def __init__(self, name="mountain", animal_capacity=6, plant_capacity=4):
         super().__init__(name, animal_capacity, plant_capacity)
 
     def add_inhabitant(self, item):

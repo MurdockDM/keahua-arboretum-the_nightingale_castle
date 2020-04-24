@@ -16,9 +16,12 @@ def annex_habitat(arboretum):
     if choice == "1":
         coastline = Coastline()
         arboretum.coastlines.append(coastline)
+        print(len(arboretum.coastlines))
     if choice == "2":
         forest = Forest()
         arboretum.forests.append(forest)
+        print(len(arboretum.coastlines))
+        print(len(arboretum.forests))
     if choice == "3":
         grassland = Grassland()
         arboretum.grasslands.append(grassland)

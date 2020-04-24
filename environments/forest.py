@@ -3,7 +3,7 @@ from interfaces import IShady
 
 class Forest(Environment):
 
-    def __init__(self, name, animal_capacity, plant_capacity):
+    def __init__(self, name="forest", animal_capacity=20, plant_capacity=32):
         super().__init__(name, animal_capacity, plant_capacity)
 
     def add_inhabitant(self, item):

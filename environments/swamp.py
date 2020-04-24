@@ -6,7 +6,7 @@ from interfaces.habitat import IStagnant
 
 class Swamp(Environment):
 
-    def __init__(self, name, animal_capacity, plant_capacity):
+    def __init__(self, name="swamp", animal_capacity=8, plant_capacity=12):
         super().__init__(name, animal_capacity, plant_capacity)
 
     def add_inhabitant(self, item):
