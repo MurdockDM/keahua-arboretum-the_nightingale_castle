@@ -7,7 +7,7 @@ from interfaces import Identifiable
 
 class RiverDolphin(Animal, IFreshwater, ISaltwater, Identifiable, FishFood):
 
-    def __init__(self, name):
+    def __init__(self, name = "River Dolphin"):
         Animal.__init__(self, name)
         IFreshwater.__init__(self)
         ISaltwater.__init__(self)

@@ -45,7 +45,7 @@ def main_menu():
     # what if == 6 ? ... close the program
     # does this work??
 
-    if choice != "6":
-        main_menu()
+    # if choice != "6":
+    #     main_menu()
 
 main_menu()

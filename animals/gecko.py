@@ -5,7 +5,7 @@ from interfaces import Identifiable
 
 class Gecko(Animal, IShady, InsectFood, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "Gold Dust Day Gecko"):
         Animal.__init__(self, name)
         IShady.__init__(self)
         InsectFood.__init__(self)
