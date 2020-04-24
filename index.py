@@ -1,7 +1,6 @@
 import os
 from arboretum import Arboretum
 from actions import (annex_habitat, build_facility_report, release_animal)
-from actions.release_animal import release_animal
 from actions.report import build_facility_report
 from actions.feed_animal import  feeding_menu
 
@@ -29,7 +28,7 @@ def main_menu():
         annex_habitat(keahua, main_menu)
 
     if choice == "2":
-        release_animal(keahua)
+        release_animal(keahua, main_menu)
 
     if choice == "3":
         feeding_menu(keahua)
