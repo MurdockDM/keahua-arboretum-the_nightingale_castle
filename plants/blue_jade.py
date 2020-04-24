@@ -5,7 +5,7 @@ from interfaces import ISunny
 
 class BlueJade(Plant, IStagnant, ISunny, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "Blue Jade"):
         Plant.__init__(self, name)
         Identifiable.__init__(self)
         IStagnant.__init__(self)

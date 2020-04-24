@@ -4,7 +4,7 @@ from interfaces import ISunny
 
 class Silversword(Plant, Identifiable, ISunny):
 
-    def __init__(self, name):
+    def __init__(self, name = "Silversword"):
         Plant.__init__(self, name)
         Identifiable.__init__(self)
         ISunny.__init__(self)
