@@ -2,19 +2,20 @@ import sys
 sys.path.append('../')
 
 from .environment import Environment
-from interfaces.habitat import IStagnant
+from interfaces import IStagnant, Identifiable
 
-class Swamp(Environment):
+class Swamp(Environment, Identifiable):
 
     def __init__(self, name="swamp", animal_capacity=8, plant_capacity=12):
-        super().__init__(name, animal_capacity, plant_capacity)
+        Environment.__init__(self, name, animal_capacity, plant_capacity)
+        Identifiable.__init__(self)
 
     def add_inhabitant(self, item):
-        if not isinstance(item, IStagnant):
+        if not item.likes_stagnant_water:
             raise TypeError(f"{item} can't live in this environment!")
-        elif item.is_animal:
+        elif item.feed:
             self.inhabitants["Animals"].append(item)
-        elif item.is_plant:
+        else:
             self.inhabitants["Plants"].append(item)
 
     def __str__(self):

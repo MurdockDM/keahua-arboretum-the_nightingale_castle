@@ -1,17 +1,18 @@
 from .environment import Environment
-from interfaces import IShady
+from interfaces import IShady, Identifiable
 
-class Forest(Environment):
+class Forest(Environment, Identifiable):
 
     def __init__(self, name="forest", animal_capacity=20, plant_capacity=32):
-        super().__init__(name, animal_capacity, plant_capacity)
+        Environment.__init__(self, name, animal_capacity, plant_capacity)
+        Identifiable.__init__(self)
 
     def add_inhabitant(self, item):
-        if not isinstance(item, IShady):
+        if not item.likes_shade:
             raise TypeError(f"{item} can't live in this environment!")
-        elif item.is_animal:
+        elif item.feed:
             self.inhabitants["Animals"].append(item)
-        elif item.is_plant:
+        else:
             self.inhabitants["Plants"].append(item)
 
     def __str__(self):

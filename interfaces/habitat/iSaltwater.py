@@ -1,4 +1,4 @@
 class ISaltwater:
     
     def __init__(self):
-        self.saltwater = True
+        self.likes_salt = True
