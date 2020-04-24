@@ -1,39 +1,3 @@
-# import os
-# from animals import Gecko, Goose, Kikakapu, Opeapea, Pueo, RiverDolphin, Spider, Ulae
-
-# def feeding_menu(arboretum, menu):
-#     os.system('cls' if os.name == 'nt' else 'clear')
-#     print("1. Gold Dust Day Gecko")
-#     print("2. Nene Goose")
-#     print("3. Kīkākapu ")
-#     print("4. Ope'ape'a")
-#     print("5. Pueo")
-#     print("6. River Dolphin")
-#     print("7. Hawaiian Happy-Face Spider")
-#     print("8. 'Ulae")
-
-
-
-#     choice = input("Choose the animal you want to feed > ")
-
-#     if choice == "1":
-       
-#     if choice == "2":
-        
-#     if choice == "3":
-        
-#     if choice == "4":
-        
-#     if choice == "5":
-        
-#     if choice == "6":
-        
-#     if choice == "7":
-
-#     if choice == "8":
-
-#     menu()
-
 import animals
 import os
 from animals import Animal
@@ -48,6 +12,13 @@ def build_feeding_animal_menu(arboretum, animal_list):
     """
     os.system('cls' if os.name == 'nt' else 'clear')
     animal_instance_list = ["" for i in animal_list]
+    print(''' 
+___________               .___.__                 ___________.___                
+\_   _____/___   ____   __| _/|__| ____    ____   \__    ___/|   | _____   ____  
+ |    __)/ __ \_/ __ \ / __ | |  |/    \  / ___\    |    |   |   |/     \_/ __ \ 
+ |     \\  ___/\  ___// /_/ | |  |   |  \/ /_/  >   |    |   |   |  Y Y  \  ___/ 
+ \___  / \___  >\___  >____ | |__|___|  /\___  /    |____|   |___|__|_|  /\___  >
+     \/      \/     \/     \/         \//_____/                        \/     \/  ''')
 
     for i, animal in enumerate(animal_list):
         animal_instance_list[i] = animal()
@@ -75,13 +46,18 @@ def feeding_menu(arboretum):
     animal_instance_list = build_feeding_animal_menu(arboretum, animal_list)
 
 
-def filter_animals(arboretum):
+def filter_animals(arboretum, choice):
 
     all_animals_all_biomes = Arboretum.animals(arboretum) 
 
     geckos = []
     geese = []
     kikakapus = []
-    opeapeas = []   
+    opeapeas = []
+    pueos = []
+    river_dolphins = []
+    spiders = []
+    ulaes = []   
 
     for animal in all_animals_all_biomes:
+
