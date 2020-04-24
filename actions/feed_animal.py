@@ -42,7 +42,7 @@ from arboretum import Arboretum
 
 ANIMAL_SELECTION = 0
 
-def build_select_animal_menu(animal_list):
+def build_feeding_animal_menu(arboretum, animal_list):
     """
     Creates Select Animal Menu
     """
@@ -55,10 +55,12 @@ def build_select_animal_menu(animal_list):
 
     print(f"{len(animal_instance_list) + 1}. Main Menu")
     print("0. Exit Application")
-
-
+    
+    someanimals = Arboretum.animals(arboretum)
+    print(len(someanimals))
 
     choice = input("Choose an option >>")
+
 
 def feeding_menu(arboretum):
     
@@ -70,4 +72,16 @@ def feeding_menu(arboretum):
 
     animal = None
 
-    animal_instance_list = build_select_animal_menu(animal_list)
+    animal_instance_list = build_feeding_animal_menu(arboretum, animal_list)
+
+
+def filter_animals(arboretum):
+
+    all_animals_all_biomes = Arboretum.animals(arboretum) 
+
+    geckos = []
+    geese = []
+    kikakapus = []
+    opeapeas = []   
+
+    for animal in all_animals_all_biomes:
