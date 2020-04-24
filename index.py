@@ -22,11 +22,6 @@ def main_menu():
     Arguments: None
     """
     build_menu()
-    
-    for key, value in keahua.__dict__.items():
-        if type(value) == list:
-            for envi in value:
-                print(envi.inhabitants)
 
     choice = input(">> ")
 

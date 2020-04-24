@@ -50,4 +50,4 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
             tuple_return = build_select_location_menu(arboretum, animal, animal.species, "Please provide a number without decimal points to place:")
             return tuple_return
 
-        return  "menu" if choice == len(avalible_location_list) + 1 else avalible_location_list[choice - 1]
+        return  "menu" if choice >= len(avalible_location_list) + 1 else avalible_location_list[choice - 1]

@@ -6,8 +6,7 @@ import os
 from animals import Animal
 from inspect import isclass
 from .select_animal import build_select_animal_menu
-from .select_location import build_select_location_menu
-
+from .call_select_location import call_select_location
 
 def release_animal(arboretum, menu):
 
@@ -28,15 +27,4 @@ def release_animal(arboretum, menu):
 
         
 
-def call_select_location(animal_instance_list, animal_selection, arboretum, menu, other_text=False):
-    animal = animal_instance_list[animal_selection - 1]
-    env = build_select_location_menu(arboretum, animal, menu, other_text="****   That biome is not large enough   **** \n ****     Please choose another one      ****")
-    if env != None:
-        if env == "menu":
-            menu()
-        elif env.animal_capacity > len(env.inhabitants["Animals"]):
-            env.add_inhabitant(animal)
-            menu()
-        else:
-            call_select_location(animal_instance_list, animal_selection, arboretum, menu, "****   That biome is not large enough   ****\n****     Please choose another one      ****")
 
