@@ -1,17 +1,18 @@
 from .environment import Environment
-from interfaces import ISunny
+from interfaces import ISunny, Identifiable
 
-class Grassland(Environment):
+class Grassland(Environment, Identifiable):
 
     def __init__(self, name="grassland", animal_capacity=22, plant_capacity=15):
-        super().__init__(name, animal_capacity, plant_capacity)
+        Environment.__init__(self, name, animal_capacity, plant_capacity)
+        Identifiable.__init__(self)
 
     def add_inhabitant(self, item):
-        if not isinstance(item, ISunny):
+        if not item.likes_sun:
             raise TypeError(f"{item} can't live in this environment!")
-        elif item.is_animal:
+        elif item.feed:
             self.inhabitants["Animals"].append(item)
-        elif item.is_plant:
+        else:
             self.inhabitants["Plants"].append(item)
 
     def __str__(self):
