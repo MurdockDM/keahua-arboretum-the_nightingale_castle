@@ -16,11 +16,18 @@ def build_menu():
 
 
 def main_menu():
+
     """Show Keahua Action Options
 
     Arguments: None
     """
     build_menu()
+    
+    for key, value in keahua.__dict__.items():
+        if type(value) == list:
+            for envi in value:
+                print(envi.inhabitants)
+
     choice = input(">> ")
 
     if choice == "1":
