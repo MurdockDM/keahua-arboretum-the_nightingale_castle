@@ -1,4 +1,4 @@
 class IHighElevation:
     
     def __init__(self):
-        self.high_elevation = True
+        self.likes_high_elevation = True
