@@ -2,7 +2,7 @@
 import os
 from environments import Coastline, Forest, Grassland, Mountain, River, Swamp
 
-def annex_habitat(arboretum):
+def annex_habitat(arboretum, menu):
     os.system('cls' if os.name == 'nt' else 'clear')
     print("1. Coastline")
     print("2. Forest")
@@ -16,12 +16,9 @@ def annex_habitat(arboretum):
     if choice == "1":
         coastline = Coastline()
         arboretum.coastlines.append(coastline)
-        print(len(arboretum.coastlines))
     if choice == "2":
         forest = Forest()
         arboretum.forests.append(forest)
-        print(len(arboretum.coastlines))
-        print(len(arboretum.forests))
     if choice == "3":
         grassland = Grassland()
         arboretum.grasslands.append(grassland)
@@ -34,3 +31,5 @@ def annex_habitat(arboretum):
     if choice == "6":
         swamp = Swamp()
         arboretum.swamps.append(swamp)
+
+    menu()

@@ -25,7 +25,7 @@ def main_menu():
     choice = input(">> ")
 
     if choice == "1":
-        annex_habitat(keahua)
+        annex_habitat(keahua, main_menu)
 
     if choice == "2":
         release_animal(keahua)
