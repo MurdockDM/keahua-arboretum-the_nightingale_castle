@@ -7,7 +7,7 @@ from interfaces import Identifiable
 
 class Opeapea(Animal, IShady, IHighElevation, VegetationFood, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "Ope'ape'a"):
         Animal.__init__(self, name)
         VegetationFood.__init__(self)
         IShady.__init__(self)
