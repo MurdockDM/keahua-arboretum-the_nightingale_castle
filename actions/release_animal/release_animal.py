@@ -20,13 +20,13 @@ def release_animal(arboretum, menu):
 
     animal_instance_list, ANIMAL_SELECTION = build_select_animal_menu(
         animal_list)
-    animal = animal_instance_list[ANIMAL_SELECTION - 1]
-    if ANIMAL_SELECTION > len(animal_instance_list):
+    if ANIMAL_SELECTION >= len(animal_instance_list):
         menu()
     else:
-        choice = build_select_location_menu(arboretum, animal)
+        animal = animal_instance_list[ANIMAL_SELECTION - 1]
+        choice = build_select_location_menu(arboretum, animal, menu)
 
-def build_select_location_menu(arboretum, animal, input_text=f"Choose a Biome to release the animal:"):
+def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Biome to release the animal:"):
     os.system('cls' if os.name == 'nt' else 'clear')
 
     env_char = {
@@ -45,9 +45,11 @@ def build_select_location_menu(arboretum, animal, input_text=f"Choose a Biome to
                 avalible_location_dict[key] = arboretum.__dict__[key]
 
     if len(avalible_location_dict.keys()) == 0:
-        print("There are no availible locations for {animal.species} to go.")
-        print(f"To add a Biome, go back to the main menu and select option 1")
-        print("1. Main Menu")
+        print(f"There are no availible locations for {animal.species} to go.")
+        print(f"To add a Biome, from the main menu select option 1")
+        print("Press Enter to go back to the main menu")
+        input(">>")
+        menu()
     else:
         i = 1
         avalible_location_list = list()
@@ -59,12 +61,13 @@ def build_select_location_menu(arboretum, animal, input_text=f"Choose a Biome to
             print(f"{i + 1} {value}")
 
         print(f"{len(avalible_location_list) + 1}. Main Menu")
-        print(f"\n\n {input_text} {animal.species}")
+        # print(f"\n\n {input_text} {animal.species}")
+        print("Press enter to cotinue...")
         choice = input(">> ")
-
-        try:
-            choice = int(choice)
-        except ValueError:
-            build_select_location_menu(arboretum, animal, "Please provide a number without decimal points to place:")
-        else:
-            print(choice)
+        menu()
+        # try:
+        #     choice = int(choice)
+        # except ValueError:
+        #     build_select_location_menu(arboretum, animal, animal.species, "Please provide a number without decimal points to place:")
+        # else:
+        #     print(choice)
