@@ -5,7 +5,7 @@ from interfaces import Identifiable
 
 class Goose(Animal, ISunny, VegetationFood, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "Nene Goose"):
         Animal.__init__(self, name)
         VegetationFood.__init__(self)
         ISunny.__init__(self)

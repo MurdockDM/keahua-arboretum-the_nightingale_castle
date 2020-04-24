@@ -6,7 +6,7 @@ from interfaces import Identifiable
 
 class Kikakapu(Animal, IStagnant, IFreshwater, FishFood, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "Kīkākapu"):
         Animal.__init__(self, name)
         FishFood.__init__(self)
         IStagnant.__init__(self)

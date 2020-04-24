@@ -6,7 +6,7 @@ from interfaces import Identifiable
 
 class Pueo(Animal, ISunny, IShady, RodentFood, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "Pueo"):
         Animal.__init__(self, name)
         RodentFood.__init__(self)
         ISunny.__init__(self)

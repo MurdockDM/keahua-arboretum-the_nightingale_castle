@@ -5,7 +5,7 @@ from interfaces import Identifiable
 
 class Ulae(Animal, ISaltwater, FishFood, Identifiable):
 
-    def __init__(self, name):
+    def __init__(self, name = "'Ulae"):
         Animal.__init__(self, name)
         FishFood.__init__(self)
         ISaltwater.__init__(self)
