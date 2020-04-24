@@ -1,6 +1,8 @@
 import os
 
+INDEX = 0
 def build_select_animal_menu(animal_list, input_text = "Choose an Animal to release"):
+    
     """
     Creates Select Animal Menu
     """
@@ -13,11 +15,12 @@ def build_select_animal_menu(animal_list, input_text = "Choose an Animal to rele
     print(f"{len(animal_instance_list) + 1}. Main Menu")
     print(input_text)
     choice = input(">> ")
-        
+    tuple_return = 0
     try:
         choice = int(choice)
     except ValueError:
-        build_select_animal_menu(animal_list, "Please provide a number without decimal points")
-    else:
-        return (animal_instance_list, choice)
+        tuple_return = build_select_animal_menu(animal_list, "Please provide a number without decimal points")
+        return tuple_return
+    return animal_instance_list, choice
+ 
         
