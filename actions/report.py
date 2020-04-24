@@ -1,5 +1,10 @@
 # Andrew
+import os
+
 def build_facility_report(arboretum, menu):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     for coastline in arboretum.coastlines:
         print(f'\nCoastline [{str(coastline.id)[:8]}]')
 
@@ -20,7 +25,7 @@ def build_facility_report(arboretum, menu):
 
     # input("\n\nPress any key to continue...")
 
-    choice = input("\nPress Enter to go back to main menu")
+    choice = input("\nPress enter to go back to main menu")
 
     if choice == "":
         menu()

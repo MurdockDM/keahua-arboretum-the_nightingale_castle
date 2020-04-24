@@ -30,25 +30,22 @@ def main_menu():
     if choice == "1":
         annex_habitat(keahua, main_menu)
 
-    if choice == "2":
+    elif choice == "2":
         release_animal(keahua, main_menu)
 
-    if choice == "3":
-        pass
+    elif choice == "3":
+        main_menu()
     # feed
 
-    if choice == "4":
-        pass
+    elif choice == "4":
+        main_menu()
     # cultivate
 
-    if choice == "5":
+    elif choice == "5":
         build_facility_report(keahua, main_menu)
         pass
 
-    # what if == 6 ? ... close the program
-    # does this work??
-
-    # if choice != "6":
-    #     main_menu()
+    elif choice != "6":
+        main_menu()
 
 main_menu()
