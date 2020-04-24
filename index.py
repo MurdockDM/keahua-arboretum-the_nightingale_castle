@@ -32,7 +32,7 @@ def main_menu():
         release_animal(keahua)
 
     if choice == "3":
-        feed_animal(keahua)
+        feeding_menu(keahua)
     # feed
 
     if choice == "4":
