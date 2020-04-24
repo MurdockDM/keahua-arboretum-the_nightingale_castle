@@ -38,6 +38,7 @@ import animals
 import os
 from animals import Animal
 from inspect import isclass
+from arboretum import Arboretum
 
 ANIMAL_SELECTION = 0
 
@@ -54,6 +55,10 @@ def build_select_animal_menu(animal_list):
 
     print(f"{len(animal_instance_list) + 1}. Main Menu")
     print("0. Exit Application")
+
+
+
+    choice = input("Choose an option >>")
 
 def feeding_menu(arboretum):
     
