@@ -1,6 +1,6 @@
 import os
 
-def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Biome to release the animal:"):
+def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Biome to release the animal:", other_text=False):
     """
     Builds Location Menu
     """
@@ -34,19 +34,20 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
         for key, value in avalible_location_dict.items():
             for item in value:
                 avalible_location_list.append(item)
-        
+        if other_text:
+            print(other_text)
         for i, value in enumerate(avalible_location_list):
             print(f"{i + 1}. {str(value).capitalize()} ({len(value.inhabitants['Animals'])} animals)")
 
         print(f"{len(avalible_location_list) + 1}. Main Menu")
-        # print(f"\n\n {input_text} {animal.species}")
+        print(f"\n\n {input_text} {animal.species}")
 
-        print("Press enter to cotinue...")
         choice = input(">> ")
-        menu()
-        # try:
-        #     choice = int(choice)
-        # except ValueError:
-        #     build_select_location_menu(arboretum, animal, animal.species, "Please provide a number without decimal points to place:")
-        # else:
-        #     print(choice)
+        tuple_return = 0
+        try:
+            choice = int(choice)
+        except ValueError:
+            tuple_return = build_select_location_menu(arboretum, animal, animal.species, "Please provide a number without decimal points to place:")
+            return tuple_return
+
+        return  "menu" if choice >= len(avalible_location_list) + 1 else avalible_location_list[choice - 1]
