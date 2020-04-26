@@ -2,7 +2,7 @@ import os
 from arboretum import Arboretum
 from actions import (annex_habitat, build_facility_report, release_animal)
 from actions.report import build_facility_report
-from actions.feed_animal import  feeding_menu
+from actions.feeding_animal.feed_animal import  feeding_menu
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
@@ -33,7 +33,7 @@ def main_menu():
         release_animal(keahua, main_menu)
 
     if choice == "3":
-        feeding_menu(keahua)
+        feeding_menu(keahua, main_menu)
     # feed
 
     if choice == "4":

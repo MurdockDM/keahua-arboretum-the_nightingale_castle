@@ -1,17 +1,18 @@
-import animals
+import sys
 import os
-from animals import Animal
-from inspect import isclass
 from arboretum import Arboretum
+from .choose_individual import filter_animals
 
-ANIMAL_SELECTION = 0
 
-def build_feeding_animal_menu(arboretum, animal_list):
+def build_feeding_animal_menu(arboretum, animal_list, menu):
     """
     Creates Select Animal Menu
     """
     os.system('cls' if os.name == 'nt' else 'clear')
     animal_instance_list = ["" for i in animal_list]
+    print('''  +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+ |  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |
+ +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
     print(''' 
 ___________               .___.__                 ___________.___                
 \_   _____/___   ____   __| _/|__| ____    ____   \__    ___/|   | _____   ____  
@@ -26,38 +27,21 @@ ___________               .___.__                 ___________.___
 
     print(f"{len(animal_instance_list) + 1}. Main Menu")
     print("0. Exit Application")
-    
+
     someanimals = Arboretum.animals(arboretum)
-    print(someanimals)
 
     choice = input("Choose an option >>")
 
-
-def feeding_menu(arboretum):
-    
-    module = animals.__dict__
-    animal_list = []
-    for key, value in module.items():
-        if isclass(value) and value != Animal:
-            animal_list.append(value)
-
-    animal = None
-
-    animal_instance_list = build_feeding_animal_menu(arboretum, animal_list)
-
-
-# def filter_animals(arboretum, choice):
-
-#     all_animals_all_biomes = Arboretum.animals(arboretum) 
-
-#     geckos = []
-#     geese = []
-#     kikakapus = []
-#     opeapeas = []
-#     pueos = []
-#     river_dolphins = []
-#     spiders = []
-#     ulaes = []   
-
-#     for animal in all_animals_all_biomes:
-
+    try:
+        choice = int(choice)
+        if choice <= len(animal_instance_list) and choice > 0:
+            filter_animals(arboretum, choice, menu)
+        elif choice == 0:
+            sys.exit()
+        elif choice == len(animal_instance_list) + 1:
+            menu()
+    except ValueError:
+        restart_menu = build_feeding_animal_menu(arboretum, animal_list, menu)
+        return restart_menu
+    else:
+        menu()
