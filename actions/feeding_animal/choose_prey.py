@@ -15,7 +15,7 @@ def choose_prey(individual_choice, list_of_animal_lists, choice, menu, message_t
     print()
     for i, prey in enumerate(list_chosen_animal_prey):
         print(f'{i +1}. {prey}')
-
+    print("0. Main Menu")
 
     if message_text != "":
             print(f"\n{message_text}")
@@ -27,6 +27,8 @@ def choose_prey(individual_choice, list_of_animal_lists, choice, menu, message_t
         prey_choice = int(prey_choice)
         if prey_choice <= len(list_chosen_animal_prey) and prey_choice > 0:
             animal_fed(prey_choice, chosen_animal, list_chosen_animal_prey, menu, message_text)
+        elif prey_choice == 0:
+            menu()    
         else:
             message_text = "*  Please input one of the numbers above  *"
             choose_prey(individual_choice, list_of_animal_lists, choice, menu, message_text)
