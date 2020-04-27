@@ -5,6 +5,13 @@ def build_facility_report(arboretum, menu):
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
+    print(''' +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+ |  A  r  b  o  r  e  t  u  m    R  e  p  o  r  t  |
+ +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
+
+    if arboretum.coastlines == [] and arboretum.forests == [] and arboretum.grasslands == [] and arboretum.mountains == [] and arboretum.rivers == [] and arboretum.swamps == []:
+        print(f'\n****            There are currently no biomes            ****\n****  To add a biome choose option 1 from the main menu  ****')
+
     for coastline in arboretum.coastlines:
         print(f'\nCoastline [{str(coastline.id)[:8]}]')
         for animal in coastline.inhabitants["Animals"]:
@@ -47,7 +54,6 @@ def build_facility_report(arboretum, menu):
         for plant in swamp.inhabitants["Plants"]:
             print(f'    {plant.species} ({str(plant.id).split("-")[0]})')
 
-    choice = input("\nPress ENTER to go back to main menu...")
-
-    if choice == "":
-        menu("You just viewed the report")
+    choice = input('\nPress ENTER to return to main menu...')
+    
+    menu()
