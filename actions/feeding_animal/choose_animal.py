@@ -76,12 +76,13 @@ def build_feeding_animal_menu(arboretum, animal_list, menu, message_text):
             message_text = "****  There does not appear to be any of this type of animal  ****\n \n          ****  Please choose another  ****\n"
             build_feeding_animal_menu(arboretum, animal_list, menu, message_text)
         elif choice <= len(animal_instance_list) and choice > 0:
-            filter_animals(arboretum, choice, menu, animal_list, selected_list, list_of_animal_lists, message_text = "\nwhich animal do you want to feed?")
+            filter_animals(arboretum, choice, menu, animal_list, selected_list, list_of_animal_lists, message_text = "\nwhich animal do you want to feed?") 
     except ValueError:
         message_text = "*  Please input one of the numbers above  *"
         restart_menu = build_feeding_animal_menu(arboretum, animal_list, menu, message_text)
         return restart_menu 
     except IndexError:
-        message_text = "*  Please input one of the numbers above  *"       
+        message_text = "*  Please input one of the numbers above  *"
+        build_feeding_animal_menu(arboretum, animal_list, menu, message_text)       
     else:
         message_text = "*  Please input one of the numbers above  *"

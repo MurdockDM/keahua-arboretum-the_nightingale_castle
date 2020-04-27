@@ -18,4 +18,4 @@ def feeding_menu(arboretum, menu, message_text):
     animal = None
 
     animal_instance_list = build_feeding_animal_menu(
-        arboretum, animal_list, menu, message_text = "\nChoose an option")
+        arboretum, animal_list, menu, message_text = "\nChoose an animal")
