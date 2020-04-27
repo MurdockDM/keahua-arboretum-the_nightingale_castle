@@ -54,10 +54,6 @@ def build_facility_report(arboretum, menu):
         for plant in swamp.inhabitants["Plants"]:
             print(f'    {plant.species} ({str(plant.id).split("-")[0]})')
 
-    choice = input("\nPress ENTER to go back to main menu...")
-
-    if choice == "":
-        menu()
-
-    if choice != "":
-        build_facility_report(arboretum, menu)
+    choice = input('\nPress ENTER to return to main menu...')
+    
+    menu()
