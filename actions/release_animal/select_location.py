@@ -1,7 +1,7 @@
 import os
 from .print_title import print_title
 
-def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Biome to release", other_text=False):
+def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Biome to release", other_text=False, error=False):
     """
     Builds Location Menu
     """
@@ -44,16 +44,22 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
         print(f"0. Main Menu")
         for i, value in enumerate(avalible_location_list):
             print(f"{i + 1}. {str(value).capitalize()} [{str(value.id)[:8]}] ({len(value.inhabitants['Animals'])} animals)")
-        print(f"\n* {input_text} {animal.species} ({str(animal.id)[:8]}) *")
+        dire_str = f"{input_text} {animal.species} ({str(animal.id)[:8]})"
+        if error:
+            print(f"\n* {dire_str} *")
+        else:
+            print(f"\n{dire_str}")
+
 
         choice = input("> ")
         tuple_return = 0
         try:
             choice = int(choice)
-            if choice > len(avalible_location_list) + 1:
+            if choice > len(avalible_location_list):
                 raise ValueError
         except ValueError:
-            tuple_return = build_select_location_menu(arboretum, animal, animal.species, "Please input one of the numbers listed above to place")
+            tuple_return = build_select_location_menu(arboretum, animal, animal.species, "Please input one of the numbers listed above to place", error=True)
+
             return tuple_return
 
         return  "menu" if choice == 0 else avalible_location_list[choice - 1]
