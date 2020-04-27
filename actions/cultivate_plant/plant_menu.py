@@ -6,7 +6,7 @@ from inspect import isclass
 from .plant_biomes_menu import plant_biomes
 
 
-def select_plant_menu(plants_list, main_menu):
+def select_plant_menu(plants_list, main_menu, message = ""):
 
     """This function creates the menu of plants to add to a biome"""
 
@@ -18,13 +18,16 @@ def select_plant_menu(plants_list, main_menu):
         plant_instance_list[i] = plant()
         print(f"{i + 1}. {plant_instance_list[i].species}")
 
-    print(f"{len(plant_instance_list) + 1}. Main Menu")
-    choice = input(">> ")
+    print(f"0. Main Menu")
+    if message != "":
+        print()
+        print(message)
+    choice = input("\n> ")
     
     try:
         choice = int(choice)
     except ValueError:
-        select_plant_menu(plants_list, "Please use an interger")
+        return select_plant_menu(plants_list, main_menu, "Please use an interger")
     else:
         return (plant_instance_list, choice)
 
@@ -38,9 +41,9 @@ def run_plant_menu(arboretum, main_menu):
         if isclass(value) and value != Plant:
             plant_list.append(value)
 
-    plant, selection = select_plant_menu(plant_list, main_menu)
+    plant, selection = select_plant_menu(plant_list, main_menu, "Please select plant to add . . .")
     
-    if selection > len(plant_list):
+    if selection == 0:
         main_menu()
     else:
         plant_biomes(arboretum, plant[selection - 1], main_menu, run_plant_menu)
