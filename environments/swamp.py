@@ -9,6 +9,18 @@ class Swamp(Environment, Identifiable):
     def __init__(self, name="swamp", animal_capacity=8, plant_capacity=12):
         Environment.__init__(self, name, animal_capacity, plant_capacity)
         Identifiable.__init__(self)
+        self.image = '''
+   ,
+.\/./
+'\|/`          ,
+ _|_  ~~~~  .\/./
+   ~~~      '\|/`
+ ~ ~~ ~~~    _|_~~~~~~~~~~~~
+   ~~~, ~~   ~ ~~  ~ ~~  ~~~ ~
+   .\/./  ~~ ~ ~ ~~ ~~  ~~ ~
+   '\|/      ~ ~~ ~~~ ~ ~ ~~
+    _|_      
+'''
 
     def add_inhabitant(self, item):
         if not item.likes_stagnant_water:
