@@ -29,6 +29,10 @@ def plant_biomes(arboretum, plant, menu, plant_menu, error_message="Select the n
 
     if len(biomes_dict) == 0:
         print("**** There are no available environments for this plant ****")
+        print(f"**** {plant.species.capitalize()} can survive in the following environments: ****")
+        print()
+        for env in compatible_environment_types:
+            print(f" - {env.capitalize()}")
         print()
         print("Press ENTER to return to the main menu and annex more environments...")
         input(">")
