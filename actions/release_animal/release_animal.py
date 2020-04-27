@@ -20,7 +20,7 @@ def release_animal(arboretum, menu):
 
     animal_instance_list, animal_selection = build_select_animal_menu(animal_list)
     
-    if animal_selection > len(animal_instance_list):
+    if animal_selection == 0:
         menu()
     else:
        call_select_location(animal_instance_list, animal_selection, arboretum, menu)
