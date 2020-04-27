@@ -28,7 +28,10 @@ def select_plant_menu(plants_list, main_menu, message = ""):
     choice = input("\n> ")
     
     try:
-        choice = int(choice)
+        if int(choice) < len(plants_list) + 1:
+            choice = int(choice) 
+        else:
+            raise ValueError
     except ValueError:
         return select_plant_menu(plants_list, main_menu, "***** Please input one of the numbers listed above *****")
     else:
@@ -46,7 +49,8 @@ def run_plant_menu(arboretum, main_menu):
 
     plant, selection = select_plant_menu(plant_list, main_menu)
     
-    if selection == "0" and len(selection) == 1:
+    if int(selection) == 0:
+        
         return main_menu()
     elif selection <= len(plant_list):
         return plant_biomes(arboretum, plant[selection - 1], main_menu, run_plant_menu)

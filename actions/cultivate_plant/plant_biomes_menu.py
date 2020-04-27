@@ -48,14 +48,17 @@ def plant_biomes(arboretum, plant, menu, plant_menu, error_message=""):
         choice = input("\n> ")
 
         try:
-            choice == int(choice)
+            if int(choice) <= len(biomes_dict_list) + 1:
+                choice == int(choice)
+            else:
+                raise ValueError
         except ValueError:
             return plant_biomes(arboretum, plant, menu, plant_menu, "***** Please input one of the numbers listed above *****")
         
         else:
             if int(choice) == len(biomes_dict.items())+1:
                 plant_menu(arboretum, menu)
-            elif choice == "0":
+            elif int(choice) == 0:
                 menu()
             else:
                 biome_class = biomes_dict_list[int(choice)-1][1][1]
