@@ -50,6 +50,7 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
         else:
             print(f"\n{dire_str}")
 
+
         choice = input("> ")
         tuple_return = 0
         try:
@@ -58,6 +59,7 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
                 raise ValueError
         except ValueError:
             tuple_return = build_select_location_menu(arboretum, animal, animal.species, "Please input one of the numbers listed above to place", error=True)
+
             return tuple_return
 
         return  "menu" if choice == 0 else avalible_location_list[choice - 1]
