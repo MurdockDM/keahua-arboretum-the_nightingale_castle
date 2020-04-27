@@ -3,10 +3,14 @@ import os
 
 def build_facility_report(arboretum, menu):
 
-    if arboretum.coastlines == [] and arboretum.forests == [] and arboretum.grasslands == [] and arboretum.mountains == [] and arboretum.rivers == [] and arboretum.swamps == []:
-        print(f'**** There are currently no biomes ****\n****  To add a biome choose option 1 from the main menu  ****')
-
     os.system('cls' if os.name == 'nt' else 'clear')
+
+    print(''' +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+ |  A  r  b  o  r  e  t  u  m    R  e  p  o  r  t  |
+ +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
+
+    if arboretum.coastlines == [] and arboretum.forests == [] and arboretum.grasslands == [] and arboretum.mountains == [] and arboretum.rivers == [] and arboretum.swamps == []:
+        print(f'\n****            There are currently no biomes            ****\n****  To add a biome choose option 1 from the main menu  ****')
 
     for coastline in arboretum.coastlines:
         print(f'\nCoastline [{str(coastline.id)[:8]}]')
@@ -57,7 +61,3 @@ def build_facility_report(arboretum, menu):
 
     if choice != "":
         build_facility_report(arboretum, menu)
-        message = "Just press enter ya dumbass"
-
-def message(message):
-    print(message)
