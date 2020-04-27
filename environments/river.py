@@ -6,6 +6,20 @@ class River(Environment, Identifiable):
     def __init__(self, name="river", animal_capacity=12, plant_capacity=6):
         Environment.__init__(self, name, animal_capacity, plant_capacity)
         Identifiable.__init__(self)
+        self.image = '''
+                                   _                  
+                                  >')                 
+               _   /              (\\         (W)     
+              =') //               = \     -. `|'     
+               ))////)             = ,-      \(| ,-   
+              ( (///))           ( |/  _______\|/____ 
+~~~~~~~~~~~~~~~`~~~~'~~~~~~~~~~~~~\|,-':::::::::::::: 
+  ~~~     ~~      ~~~~    ~~  ,----'::::::::::::::::: 
+~~       ~~~~~~~     ~~~ _.--'::::::::::::::::::::::: 
+__,'`----._,-.  ~~~    _-'::::::::::::::::::::::::::: 
+:.:.:.:.:.:.:.\_    ,-'.:.:.:.:.:.:.:.:.:.:.:.:.:.:.: 
+.:.:.:.:.:.:.:.:`--'.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:.:. 
+'''
 
     def add_inhabitant(self, item):
         if not item.likes_freshwater:
