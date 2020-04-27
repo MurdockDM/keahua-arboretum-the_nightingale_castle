@@ -1,7 +1,7 @@
 import os
 # from plant_menu import run_plant_menu
 
-def plant_biomes(arboretum, plant, menu, plant_menu, input_text=f"Choose a Biome to plant le plant:"):
+def plant_biomes(arboretum, plant, menu, plant_menu, error_message=""):
     """Displays the appropriate biomes for the plant"""
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -33,24 +33,34 @@ def plant_biomes(arboretum, plant, menu, plant_menu, input_text=f"Choose a Biome
         input(">")
         menu()
     else:
-        print(input_text)
+        print(" +-++-++-++-++-++-++-++-++-++-+++-+")
+        print(" |  Select Biome to Add Plant To  |")
+        print(" +-++-++-++-++-++-++-++-++-++-+++-+")
+        print()
+
         for i, v in biomes_dict_list:
             print(f"{i+1}. {v[0].capitalize()} ({len((v[1].inhabitants)['Plants'])} plants)")
         print(f"{len(biomes_dict.items())+1}. Back to Plants")
-        print(f"{len(biomes_dict.items())+2}. Main Menu")
-        choice = input(">> ")
+        print(f"0. Main Menu")
+        if error_message != "":
+            print()
+            print(error_message)
+        choice = input("\n> ")
 
-        if choice == int(choice):
-            plant_biomes(arboretum, plant, menu, "Please make your selection with an interger.")
-        elif int(choice) == len(biomes_dict.items())+1:
-            plant_menu(arboretum, menu)
-        elif int(choice) >= len(biomes_dict.items())+2:
-            menu()
+        try:
+            choice == int(choice)
+        except ValueError:
+            return plant_biomes(arboretum, plant, menu, plant_menu, "***** Please input one of the numbers listed above *****")
+        
         else:
-            biome_class = biomes_dict_list[int(choice)-1][1][1]
-            if len(biome_class.inhabitants["Plants"]) < biome_class.plant_capacity:
-                biome_class.inhabitants["Plants"].append(plant)
-                menu(f"Successfully added {plant.species}")
+            if int(choice) == len(biomes_dict.items())+1:
+                plant_menu(arboretum, menu)
+            elif choice == "0":
+                menu()
             else:
-                plant_biomes(arboretum, plant, menu, "That biome is at carrying capacity, please try again!")
-                
+                biome_class = biomes_dict_list[int(choice)-1][1][1]
+                if len(biome_class.inhabitants["Plants"]) < biome_class.plant_capacity:
+                    biome_class.inhabitants["Plants"].append(plant)
+                    menu(f"*Successfully added {plant.species} to {biome_class.name.capitalize()}!*")
+                else:
+                    plant_biomes(arboretum, plant, menu, plant_menu, "***** That biome is at carrying capacity, please try again! *****")

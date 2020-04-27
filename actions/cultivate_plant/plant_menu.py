@@ -13,7 +13,10 @@ def select_plant_menu(plants_list, main_menu, message = ""):
     os.system('cls' if os.name == 'nt' else 'clear')
     plant_instance_list = ["" for i in plants_list]
 
-    
+    print(" +-++-++-++-++-++-++-++-++-++-+++-+")
+    print(" |  Select Plant To Add To Biome  |")
+    print(" +-++-++-++-++-++-++-++-++-++-+++-+")
+    print()
     for i, plant in enumerate(plants_list):
         plant_instance_list[i] = plant()
         print(f"{i + 1}. {plant_instance_list[i].species}")
@@ -27,7 +30,7 @@ def select_plant_menu(plants_list, main_menu, message = ""):
     try:
         choice = int(choice)
     except ValueError:
-        return select_plant_menu(plants_list, main_menu, "Please use an interger")
+        return select_plant_menu(plants_list, main_menu, "***** Please input one of the numbers listed above *****")
     else:
         return (plant_instance_list, choice)
 
@@ -41,11 +44,13 @@ def run_plant_menu(arboretum, main_menu):
         if isclass(value) and value != Plant:
             plant_list.append(value)
 
-    plant, selection = select_plant_menu(plant_list, main_menu, "Please select plant to add . . .")
+    plant, selection = select_plant_menu(plant_list, main_menu)
     
-    if selection == 0:
-        main_menu()
+    if selection == "0" and len(selection) == 1:
+        return main_menu()
+    elif selection <= len(plant_list):
+        return plant_biomes(arboretum, plant[selection - 1], main_menu, run_plant_menu)
     else:
-        plant_biomes(arboretum, plant[selection - 1], main_menu, run_plant_menu)
+        return select_plant_menu(plant_list, main_menu, "***** Please input one of the numbers listed above *****")
 
 
