@@ -6,11 +6,15 @@ from actions.feeding_animal.feed_animal import  feeding_menu
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
-def build_menu():
+def build_menu(message_text):
     os.system('cls' if os.name == 'nt' else 'clear')
     print(" +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+")
     print(" |  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |")
     print(" +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+")
+
+    if message_text != "":
+        print(f'\n {message_text}')
+        
     print("\n1. Annex Biome")
     print("2. Release New Animal")
     print("3. Feed Animal")
@@ -20,15 +24,15 @@ def build_menu():
     print("\nChoose a KILLER option.")
 
 
-def main_menu():
+def main_menu(message_text = ""):
 
     """Show Keahua Action Options
 
     Arguments: None
     """
-    build_menu()
+    build_menu(message_text)
 
-    choice = input(">> ")
+    choice = input("> ")
 
     if choice == "1":
         annex_habitat(keahua, main_menu)
