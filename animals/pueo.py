@@ -17,4 +17,4 @@ class Pueo(Animal, ISunny, IShady, RodentFood, Identifiable):
         print(f"{self.species} eats {prey}")    
 
     def __str__(self):
-        return f"Pueo {self.id}. Hoo Hoo"
+        return f"Pueo {self.id} Hoo Hoo"
