@@ -8,9 +8,9 @@ keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
 def build_menu(message_text):
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(" +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+")
-    print(" |  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |")
-    print(" +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+")
+    print(''' +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+ |  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |
+ +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
 
     if message_text != "":
         print(f'\n {message_text}')
