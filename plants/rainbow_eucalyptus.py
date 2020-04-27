@@ -4,7 +4,7 @@ from interfaces import IShady
 
 class RainbowEucalyptus(Plant, Identifiable, IShady):
 
-    def __init__(self, name):
+    def __init__(self, name = "Rainbow Eucalyptus"):
         Plant.__init__(self, name)
         Identifiable.__init__(self)
         IShady.__init__(self)

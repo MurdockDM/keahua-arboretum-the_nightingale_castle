@@ -1,6 +1,6 @@
 import os
 from arboretum import Arboretum
-from actions import (annex_habitat, build_facility_report, release_animal)
+from actions import (annex_habitat, build_facility_report, release_animal, run_plant_menu)
 from actions.report import build_facility_report
 from actions.feeding_animal.feed_animal import  feeding_menu
 
@@ -41,8 +41,7 @@ def main_menu():
     # feed
 
     elif choice == "4":
-        main_menu()
-    # cultivate
+        run_plant_menu(keahua, main_menu)
 
     elif choice == "5":
         build_facility_report(keahua, main_menu)
