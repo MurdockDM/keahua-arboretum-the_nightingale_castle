@@ -1,17 +1,12 @@
 # Andrew
 import os
 
-
 def build_facility_report(arboretum, menu):
 
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    print(''' +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
- |  A  r  b  o  r  e  t  u  m    R  e  p  o  r  t  |
- +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
-
     if arboretum.coastlines == [] and arboretum.forests == [] and arboretum.grasslands == [] and arboretum.mountains == [] and arboretum.rivers == [] and arboretum.swamps == []:
-        print("\n****             There are currently no biomes              ****\n****  To create a biome choose option 1 from the main menu  ****")
+        print(f'**** There are currently no biomes ****\n****  To add a biome choose option 1 from the main menu  ****')
+
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     for coastline in arboretum.coastlines:
         print(f'\nCoastline [{str(coastline.id)[:8]}]')
@@ -47,7 +42,7 @@ def build_facility_report(arboretum, menu):
             print(f'    {str(animal).split(" ")[0]} ({str(animal).split(" ")[1][:8]})')
         for plant in river.inhabitants["Plants"]:
             print(f'    {plant.species} ({str(plant.id).split("-")[0]})')
-
+        
     for swamp in arboretum.swamps:
         print(f'\nSwamp [{str(swamp.id)[:8]}]')
         for animal in swamp.inhabitants["Animals"]:
@@ -60,5 +55,9 @@ def build_facility_report(arboretum, menu):
     if choice == "":
         menu()
 
-    elif choice != "":
+    if choice != "":
         build_facility_report(arboretum, menu)
+        message = "Just press enter ya dumbass"
+
+def message(message):
+    print(message)
