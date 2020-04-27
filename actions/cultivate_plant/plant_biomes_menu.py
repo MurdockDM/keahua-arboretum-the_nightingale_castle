@@ -30,7 +30,7 @@ def plant_biomes(arboretum, plant, menu, plant_menu, error_message="Select the n
     if len(biomes_dict) == 0:
         print("**** There are no available environments for this plant ****")
         print()
-        print("Press ENTER to return to the main menu and annex more environments . . .")
+        print("Press ENTER to return to the main menu and annex more environments...")
         input(">")
         menu()
     else:
