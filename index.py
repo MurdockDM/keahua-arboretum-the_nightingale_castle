@@ -36,7 +36,7 @@ def main_menu():
     elif choice == "2":
         release_animal(keahua, main_menu)
 
-    if choice == "3":
+    elif choice == "3":
         feeding_menu(keahua, main_menu)
     # feed
 
