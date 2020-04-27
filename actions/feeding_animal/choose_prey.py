@@ -13,9 +13,9 @@ def choose_prey(individual_choice, list_of_animal_lists, choice, menu, message_t
  |         C h o o s e  a  f o o d  t y p e        |
  +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
     print()
+    print("0. Main Menu")
     for i, prey in enumerate(list_chosen_animal_prey):
         print(f'{i +1}. {prey}')
-    print("0. Main Menu")
 
     if message_text != "":
             print(f"\n{message_text}")
