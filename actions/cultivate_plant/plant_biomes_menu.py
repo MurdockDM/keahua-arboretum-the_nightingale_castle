@@ -1,7 +1,7 @@
 import os
 # from plant_menu import run_plant_menu
 
-def plant_biomes(arboretum, plant, menu, input_text=f"Choose a Biome to plant le plant:"):
+def plant_biomes(arboretum, plant, menu, plant_menu, input_text=f"Choose a Biome to plant le plant:"):
     """Displays the appropriate biomes for the plant"""
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -31,7 +31,7 @@ def plant_biomes(arboretum, plant, menu, input_text=f"Choose a Biome to plant le
         print("There are no available environments for this plant")
         print("Press ENTER to return to the main menu and annex more environments")
         input(">>")
-        (menu[0]())
+        menu()
     else:
         print(input_text)
         for i, v in biomes_dict_list:
@@ -43,9 +43,9 @@ def plant_biomes(arboretum, plant, menu, input_text=f"Choose a Biome to plant le
         if choice == int(choice):
             plant_biomes(arboretum, plant, menu, "Please make your selection with an interger.")
         elif int(choice) == len(biomes_dict.items())+1:
-            menu[1](arboretum, menu)
+            plant_menu(arboretum, menu)
         elif int(choice) >= len(biomes_dict.items())+2:
-            menu[0]()
+            menu()
         else:
             biome_class = biomes_dict_list[int(choice)-1][1][1]
             if len(biome_class.inhabitants["Plants"]) < biome_class.plant_capacity:
@@ -53,7 +53,7 @@ def plant_biomes(arboretum, plant, menu, input_text=f"Choose a Biome to plant le
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print(f"Successfully added {plant.species}")
                 input(">> ")
-                menu[0]()
+                menu()
             else:
                 plant_biomes(arboretum, plant, menu, "That biome is at carrying capacity, please try again!")
                 

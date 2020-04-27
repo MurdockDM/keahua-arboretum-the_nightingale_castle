@@ -43,6 +43,6 @@ def run_plant_menu(arboretum, main_menu):
     if selection > len(plant_list):
         main_menu()
     else:
-        plant_biomes(arboretum, plant[selection - 1], [main_menu, run_plant_menu])
+        plant_biomes(arboretum, plant[selection - 1], main_menu, run_plant_menu)
 
 

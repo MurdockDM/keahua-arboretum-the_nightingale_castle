@@ -39,7 +39,7 @@ def main_menu():
         main_menu()
     # feed
 
-    if choice == "4":
+    elif choice == "4":
         run_plant_menu(keahua, main_menu)
 
     elif choice == "5":
