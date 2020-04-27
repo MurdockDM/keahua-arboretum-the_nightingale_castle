@@ -44,7 +44,7 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
         print(f"0. Main Menu")
         for i, value in enumerate(avalible_location_list):
             print(f"{i + 1}. {str(value).capitalize()} [{str(value.id)[:8]}] ({len(value.inhabitants['Animals'])} animals)")
-        print(f"\n{input_text} {animal.species} ({str(animal.id)[:8]})")
+        print(f"\n* {input_text} {animal.species} ({str(animal.id)[:8]}) *")
 
         choice = input("> ")
         tuple_return = 0
