@@ -54,6 +54,4 @@ def main_menu(message_text = ""):
     elif choice != "6":
         main_menu()
 
-  
-
 main_menu()
