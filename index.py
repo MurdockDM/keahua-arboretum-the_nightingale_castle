@@ -35,7 +35,7 @@ def main_menu(message_text = ""):
     choice = input("> ")
 
     if choice == "1":
-        annex_habitat(keahua, main_menu, error_text = "")
+        annex_habitat(keahua, main_menu, message_text = "Choose a habitat to annex")
 
     elif choice == "2":
         release_animal(keahua, main_menu)
