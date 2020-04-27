@@ -22,27 +22,27 @@ def annex_habitat(arboretum, menu, message_text):
     if choice == "1":
         coastline = Coastline()
         arboretum.coastlines.append(coastline)
-        menu(f"~+ You just annexed a new Coastline habitat +~\n{coastline.image}") 
+        menu(f"~+ You just annexed a new Coastline biome +~\n{coastline.image}") 
     elif choice == "2":
         forest = Forest()
         arboretum.forests.append(forest)
-        menu(f"~+ You just annexed a new Forest habitat +~\n{forest.image}") 
+        menu(f"~+ You just annexed a new Forest biome +~\n{forest.image}") 
     elif choice == "3":
         grassland = Grassland()
         arboretum.grasslands.append(grassland)
-        menu(f"~+ You just annexed a new Grassland habitat +~\n{grassland.image}") 
+        menu(f"~+ You just annexed a new Grassland biome +~\n{grassland.image}") 
     elif choice == "4":
         mountain = Mountain()
         arboretum.mountains.append(mountain)
-        menu(f"~+ You just annexed a new Mountain habitat +~\n{mountain.image}") 
+        menu(f"~+ You just annexed a new Mountain biome +~\n{mountain.image}") 
     elif choice == "5":
         river = River()
         arboretum.rivers.append(river)
-        menu(f"~+ You just annexed a new River habitat +~\n{river.image}") 
+        menu(f"~+ You just annexed a new River biome +~\n{river.image}") 
     elif choice == "6":
         swamp = Swamp()
         arboretum.swamps.append(swamp)
-        menu(f"~+ You just annexed a new Swamp habitat +~\n{swamp.image}") 
+        menu(f"~+ You just annexed a new Swamp biome +~\n{swamp.image}") 
     elif choice == "0":
         menu()   
     else: 
