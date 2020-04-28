@@ -4,44 +4,93 @@ from arboretum import Arboretum
 from .choose_individual import filter_animals
 
 
-def build_feeding_animal_menu(arboretum, animal_list, menu):
+def build_feeding_animal_menu(arboretum, animal_list, menu, error_message, message_text):
     """
     Creates Select Animal Menu
     """
     os.system('cls' if os.name == 'nt' else 'clear')
-    animal_instance_list = ["" for i in animal_list]
-    print('''  +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
- |  K  e  a  h  u  a    A  r  b  o  r  e  t  u  m  |
- +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
-    print(''' 
-___________               .___.__                 ___________.___                
-\_   _____/___   ____   __| _/|__| ____    ____   \__    ___/|   | _____   ____  
- |    __)/ __ \_/ __ \ / __ | |  |/    \  / ___\    |    |   |   |/     \_/ __ \ 
- |     \\  ___/\  ___// /_/ | |  |   |  \/ /_/  >   |    |   |   |  Y Y  \  ___/ 
- \___  / \___  >\___  >____ | |__|___|  /\___  /    |____|   |___|__|_|  /\___  >
-     \/      \/     \/     \/         \//_____/                        \/     \/  ''')
 
+    
+    animal_instance_list = ["" for i in animal_list]
+    print(''' +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+
+ |           Choose an animal to feed              |
+ +-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-++-+ ''')
+    
+    
+    if error_message != "":
+        print()
+        print(f"{error_message}") 
+    print()
+    print("0. Main Menu")
     for i, animal in enumerate(animal_list):
         animal_instance_list[i] = animal()
         print(f"{i + 1}. {animal_instance_list[i].species}")
 
-    print(f"{len(animal_instance_list) + 1}. Main Menu")
-    print("0. Exit Application")
 
-    someanimals = Arboretum.animals(arboretum)
 
-    choice = input("Choose an option >>")
+
+    
+    if message_text != "":
+            print(f"\n{message_text}")
+            message_text=""
+    choice = input(">")
+
+    all_animals_all_biomes = Arboretum.animals(arboretum)
+
+    geckos = []
+    geese = []
+    kikakapus = []
+    opeapeas = []
+    pueos = []
+    river_dolphins = []
+    spiders = []
+    ulaes = []
+
+    list_of_animal_lists = [geckos, geese, kikakapus,
+                            opeapeas, pueos, river_dolphins, spiders, ulaes]
+
+    for animal in all_animals_all_biomes:
+        if animal.species == "Gold Dust Day Gecko":
+            geckos.append(animal)
+        if animal.species == "Nene Goose":
+            geese.append(animal)
+        if animal.species == "Kīkākapu":
+            kikakapus.append(animal)
+        if animal.species == "Ope'ape'a":
+            opeapeas.append(animal)
+        if animal.species == "Pueo":
+            pueos.append(animal)
+        if animal.species == "River Dolphin":
+            river_dolphins.append(animal)
+        if animal.species == "Hawaiian Happy-Face Spider":
+            spiders.append(animal)
+        if animal.species == "'Ulae":
+            ulaes.append(animal)
+    
+   
 
     try:
         choice = int(choice)
-        if choice <= len(animal_instance_list) and choice > 0:
-            filter_animals(arboretum, choice, menu)
-        elif choice == 0:
-            sys.exit()
-        elif choice == len(animal_instance_list) + 1:
+        
+        selected_list = list_of_animal_lists[int(choice) - 1]
+        
+        if choice == 0:
             menu()
+        elif len(selected_list) == 0:
+            error_message = "****  There does not appear to be any of this type of animal  ****\n \n          ****  Please choose another  ****\n"
+            message_text = "\nChoose an animal"
+            build_feeding_animal_menu(arboretum, animal_list, menu, error_message, message_text)
+        elif choice <= len(animal_instance_list) and choice > 0:
+            filter_animals(arboretum, choice, menu, animal_list, selected_list, list_of_animal_lists, message_text = "\nwhich animal do you want to feed?") 
     except ValueError:
-        restart_menu = build_feeding_animal_menu(arboretum, animal_list, menu)
-        return restart_menu
+        message_text = "*  Please input one of the numbers above  *"
+        restart_menu = build_feeding_animal_menu(arboretum, animal_list, menu, error_message, message_text)
+        return restart_menu 
+    except IndexError:
+        message_text = "*  Please input one of the numbers above  *"
+        build_feeding_animal_menu(arboretum, animal_list, menu, error_message, message_text)
+    except TypeError:
+        message_text = "*  Please input one of the numbers above  *"
+        build_feeding_animal_menu(arboretum, animal_list, menu, error_message, message_text)           
     else:
-        menu()
+        message_text = "*  Please input one of the numbers above  *"
