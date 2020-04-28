@@ -29,6 +29,7 @@ def main_menu(message_text="", keahua_class=""):
     if keahua_class != "":
         global keahua
         keahua = keahua_class
+        print("edited")
 
     """Show Keahua Action Options
 

@@ -2,6 +2,7 @@ import os
 from .get_data import get_saves
 from .save import save_as, save_new
 from .show_title import print_title
+
 def save_data(arberatum, menu, text="Choose an option from above", error=False):
     os.system('cls' if os.name == 'nt' else 'clear')
     print_title("Save")

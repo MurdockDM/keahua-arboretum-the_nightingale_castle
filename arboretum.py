@@ -1,4 +1,6 @@
 import json
+import copy
+
 class Arboretum:
     def __init__(self, name, address):
         self.name = name
@@ -24,9 +26,10 @@ class Arboretum:
         return listOfAllAnimals
 
     def update_json(self, name = ""):
-        data = json.dumps(self, default=convert_to_dict,
-                          indent=4, sort_keys=True)
-        file_name = '_'.join(self.name.lower().split(' ')) if name == "" else name
+        new_Obj = copy.deepcopy(self)
+
+        data = json.dumps(new_Obj, default=convert_to_dict)
+        file_name = '_'.join(new_Obj.name.lower().split(' ')) if name == "" else name
 
         with open(f"api/{file_name}.json", "w") as outfile:
             json.dump(data, outfile)
