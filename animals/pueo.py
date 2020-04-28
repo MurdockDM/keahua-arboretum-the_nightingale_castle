@@ -6,12 +6,12 @@ from interfaces import Identifiable
 
 class Pueo(Animal, ISunny, IShady, RodentFood, Identifiable):
 
-    def __init__(self, name = "Pueo"):
+    def __init__(self, name = "Pueo", id=""):
         Animal.__init__(self, name)
         RodentFood.__init__(self)
         ISunny.__init__(self)
         IShady.__init__(self)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
 
     def feed(self, prey):
         print(f"{self.species} eats {prey}")    

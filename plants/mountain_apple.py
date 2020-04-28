@@ -4,9 +4,9 @@ from interfaces import IHighElevation
 
 class MountainApple(Plant, Identifiable, IHighElevation):
 
-    def __init__(self, name = "Mountain Apple"):
+    def __init__(self, name = "Mountain Apple", id=""):
         Plant.__init__(self, name)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
         IHighElevation.__init__(self)
         self.image = """ 
                                   _/`.-'`.

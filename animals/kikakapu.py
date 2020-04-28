@@ -6,12 +6,12 @@ from interfaces import Identifiable
 
 class Kikakapu(Animal, IStagnant, IFreshwater, FishFood, Identifiable):
 
-    def __init__(self, name = "Kīkākapu"):
+    def __init__(self, name = "Kīkākapu", id=""):
         Animal.__init__(self, name)
         FishFood.__init__(self)
         IStagnant.__init__(self)
         IFreshwater.__init__(self)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
 
     def feed(self, prey):
         print(f"{self.species} eats {prey}")    

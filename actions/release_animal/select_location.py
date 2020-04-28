@@ -23,6 +23,7 @@ def build_select_location_menu(arboretum, animal, menu, input_text=f"Choose a Bi
             locations.append(key.capitalize())
             if len(arboretum.__dict__[key]) > 0:
                 avalible_location_dict[key] = arboretum.__dict__[key]
+    print(avalible_location_dict)
 
     if len(avalible_location_dict.keys()) == 0:
         string_length = len(animal.species) // 2

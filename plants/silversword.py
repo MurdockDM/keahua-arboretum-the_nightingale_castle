@@ -4,9 +4,9 @@ from interfaces import ISunny
 
 class Silversword(Plant, Identifiable, ISunny):
 
-    def __init__(self, name = "Silversword"):
+    def __init__(self, name = "Silversword", id=""):
         Plant.__init__(self, name)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id="")
         ISunny.__init__(self)
         self.image = """
    _x_x__x_____x    

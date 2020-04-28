@@ -3,9 +3,9 @@ from interfaces import IHighElevation, Identifiable
 
 class Mountain(Environment, Identifiable):
 
-    def __init__(self, name="mountain", animal_capacity=6, plant_capacity=4):
+    def __init__(self, name="mountain", animal_capacity=6, plant_capacity=4, id=""):
         Environment.__init__(self, name, animal_capacity, plant_capacity)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
         self.image = '''
                              
           /\               
@@ -22,7 +22,7 @@ __/__/_______/___/__\___\
     def add_inhabitant(self, item):
         if not item.likes_high_elevation:
             raise TypeError(f"{item} can't live in this environment!")
-        elif item.feed:
+        elif hasattr(item, "feed"):
             self.inhabitants["Animals"].append(item)
         else:
             self.inhabitants["Plants"].append(item)

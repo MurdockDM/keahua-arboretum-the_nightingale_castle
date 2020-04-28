@@ -5,9 +5,9 @@ from interfaces import ISunny
 
 class BlueJade(Plant, IStagnant, ISunny, Identifiable):
 
-    def __init__(self, name = "Blue Jade"):
+    def __init__(self, name = "Blue Jade", id=""):
         Plant.__init__(self, name)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
         IStagnant.__init__(self)
         ISunny.__init__(self)
         self.image = """ 

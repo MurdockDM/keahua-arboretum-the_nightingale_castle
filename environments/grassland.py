@@ -3,9 +3,9 @@ from interfaces import ISunny, Identifiable
 
 class Grassland(Environment, Identifiable):
 
-    def __init__(self, name="grassland", animal_capacity=22, plant_capacity=15):
+    def __init__(self, name="grassland", animal_capacity=22, plant_capacity=15, id=""):
         Environment.__init__(self, name, animal_capacity, plant_capacity)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
         self.image = '''
         ,,,                      ,,,                         
        {{{}}    ,,,             {{{}}                  
@@ -22,7 +22,7 @@ class Grassland(Environment, Identifiable):
     def add_inhabitant(self, item):
         if not item.likes_sun:
             raise TypeError(f"{item} can't live in this environment!")
-        elif item.feed:
+        elif hasattr(item, "feed"):
             self.inhabitants["Animals"].append(item)
         else:
             self.inhabitants["Plants"].append(item)

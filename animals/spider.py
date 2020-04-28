@@ -5,11 +5,11 @@ from interfaces import Identifiable
 
 class Spider(Animal, IStagnant, InsectFood, Identifiable):
 
-    def __init__(self, name = "Hawaiian Happy-Face Spider"):
+    def __init__(self, name = "Hawaiian Happy-Face Spider", id=""):
         Animal.__init__(self, name)
         InsectFood.__init__(self)
         IStagnant.__init__(self)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
 
     def feed(self, prey):
         print(f"{self.species} eats {prey}")

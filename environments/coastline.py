@@ -3,9 +3,9 @@ from interfaces import ISaltwater, Identifiable
 
 class Coastline(Environment, Identifiable):
 
-    def __init__(self, name="coastline", animal_capacity=15, plant_capacity=3):
+    def __init__(self, name="coastline", animal_capacity=15, plant_capacity=3, id=""):
         Environment.__init__(self, name, animal_capacity, plant_capacity)
-        Identifiable.__init__(self)
+        Identifiable.__init__(self, id)
         self.image = '''
                    
         \ _ /
@@ -21,7 +21,7 @@ class Coastline(Environment, Identifiable):
     def add_inhabitant(self, item):
         if not item.likes_salt:
             raise TypeError(f"{item} can't live in this environment!")
-        elif item.feed:
+        elif hasattr(item, "feed"):
             self.inhabitants["Animals"].append(item)
         else:
             self.inhabitants["Plants"].append(item)

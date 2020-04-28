@@ -3,3 +3,4 @@ from .report import build_facility_report
 from .cultivate_plant.plant_menu import run_plant_menu
 from .release_animal.release_animal import release_animal
 from .report import build_facility_report
+from .data_menu.show_data_menu import show_data
