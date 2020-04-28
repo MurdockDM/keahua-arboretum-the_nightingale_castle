@@ -7,7 +7,7 @@ from arboretum import Arboretum
 from .choose_animal import build_feeding_animal_menu
 
 
-def feeding_menu(arboretum, menu):
+def feeding_menu(arboretum, menu, message_text):
 
     module = animals.__dict__
     animal_list = []
@@ -16,6 +16,6 @@ def feeding_menu(arboretum, menu):
             animal_list.append(value)
 
     animal = None
-
+    error_message = ""
     animal_instance_list = build_feeding_animal_menu(
-        arboretum, animal_list, menu)
+        arboretum, animal_list, menu, error_message, message_text = "\nChoose an animal")
