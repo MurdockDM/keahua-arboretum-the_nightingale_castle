@@ -1,5 +1,5 @@
 import glob
 
 def get_saves():
-    db_files = glob.glob("database/*.json")
+    db_files = glob.glob("api/*.json")
     return db_files

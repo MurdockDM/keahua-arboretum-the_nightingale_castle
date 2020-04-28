@@ -6,4 +6,5 @@ obj
 *.db
 *.sqlite3
 .vscode
+api
 dist

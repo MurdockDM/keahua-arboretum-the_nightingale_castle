@@ -19,7 +19,7 @@ def save_as(arberatum, menu, text="", error=False):
             raise ValueError("Please Enter a name")
         else:
             name = '_'.join(file_name.lower().split(' '))
-            if f"database/{name}.json" in get_saves():
+            if f"api/{name}.json" in get_saves():
                 raise ValueError(f"{file_name} is Already Taken")
             else:
                 arberatum.update_json(name)

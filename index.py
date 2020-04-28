@@ -4,9 +4,7 @@ from actions import (annex_habitat, build_facility_report,
                      release_animal, run_plant_menu, show_data)
 from actions.report import build_facility_report
 from actions.feeding_animal.feed_animal import feeding_menu
-
-
-
+keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
 def build_menu(message_text):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -26,7 +24,6 @@ def build_menu(message_text):
     print("7. Exit")
     print("\nChoose a KILLER option.")
 
-keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
 def main_menu(message_text="", keahua_class=""):
     if keahua_class != "":

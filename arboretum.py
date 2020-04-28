@@ -28,7 +28,7 @@ class Arboretum:
                           indent=4, sort_keys=True)
         file_name = '_'.join(self.name.lower().split(' ')) if name == "" else name
 
-        with open(f"database/{file_name}.json", "w") as outfile:
+        with open(f"api/{file_name}.json", "w") as outfile:
             json.dump(data, outfile)
 
 
